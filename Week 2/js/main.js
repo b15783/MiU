@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		return theElement;
 	}
 	
-	function makeFamilyGroup(){
+/*	function makeFamilyGroup(){
 		var formTag = document.getElementsByTagName("form"), 
 			selectLi = ge('select'),
 			makeSelect = document.createElement('select');
@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		selectLi.appendChild(makeSelect);
 	
-	}
+	}*/
 	
 	function getCheckboxValue(){
 		if(ge('favorite').checked){
@@ -261,7 +261,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		favoriteValue="no",
 		errMsg = ge('errors');
 	
-	makeFamilyGroup();
+	//makeFamilyGroup();
 		
 	var showPets = ge('showPetButton');
 	showPets.addEventListener("click", getData);
