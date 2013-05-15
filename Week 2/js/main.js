@@ -1,15 +1,61 @@
 // Craig Schultz
-// Date:  May 7, 2013
-// Week 1
+// Date:  May 14, 2013
+// Week 2
 // MiU 1305
 
-window.addEventListener("DOMContentLoaded", function(){
-	function ge(x){
-		var theElement = document.getElementById(x);
-		return theElement;
+function ge(x){
+	var theElement = document.getElementById(x);
+	return theElement;
+}
+
+function autoFillExamplePets(){
+		//The JSON data used below is located in JSON.js
+		//Store JSON data into local storage
+	for(var n in json){
+		var id = Math.floor(Math.random()*100000001);
+		localStorage.setItem(id, JSON.stringify(json[n]));
+}
+}
+
+function showThePets(){
+	for(var i=0, j=localStorage.length; i<j; i++){
+		var makeLi = document.createElement("li");
+		var linksLi = document.createElement("li");
+		fullPetList.appendChild(makeLi);
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		var obj = JSON.parse(value);
+		var makeSubList = document.createElement("ul");
+		makeLi.appendChild(makeSubList);
+		//getImage(obj.family[1], makeSubList);
+		for(var n in obj){
+			var makeSubLi = document.createElement("li");
+			makeSubList.appendChild(makeSubLi);
+			var optSubText = obj[n][0]+" "+obj[n][1];
+			makeSubLi.innerHTML = optSubText;
+			makeSubList.appendChild(linksLi);
+		}
 	}
-	
-/*	function makeFamilyGroup(){
+}
+
+autoFillExamplePets();
+
+showThePets();
+
+//   ---OLD CODE---
+/*window.addEventListener("DOMContentLoaded", function(){
+
+function autoFillExamplePets(){
+		//The JSON data used below is located in JSON.js
+		//Store JSON data into local storage
+	for(var n in json){
+		var id = Math.floor(Math.random()*100000001);
+		localStorage.setItem(id, JSON.stringify(json[n]));
+}
+		
+autoFillExamplePets();
+
+	function makeFamilyGroup(){
 		var formTag = document.getElementsByTagName("form"), 
 			selectLi = ge('select'),
 			makeSelect = document.createElement('select');
@@ -23,7 +69,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		selectLi.appendChild(makeSelect);
 	
-	}*/
+	}
 	
 	function getCheckboxValue(){
 		if(ge('favorite').checked){
@@ -69,13 +115,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			
 	}
 	
-	function autoFillExamplePets(){
-		//The JSON data used below is located in JSON.js
-		//Store JSON data into local storage
-		for(var n in json){
-			var id = Math.floor(Math.random()*100000001);
-			localStorage.setItem(id, JSON.stringify(json[n]));
-		}
+	
 	}
 	
 	function getData(){
@@ -259,7 +299,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var familyGroup = ["--Choose a family--", "Aquatic", "Beast", "Critter", "Dragonkin", "Elemental", "Flying", "Humanoid", "Magic", "Mechanical",
 			"Undead"],
 		favoriteValue="no",
-		errMsg = ge('errors');
+		errMsg = ge('errors');  
 	
 	//makeFamilyGroup();
 		
@@ -271,7 +311,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	savePet.addEventListener("click", validate);
 	
 
-});
+}); 
+*/
 
 
 
