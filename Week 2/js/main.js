@@ -37,10 +37,33 @@ function showThePets(){
 		}
 	}
 }
+function countPets(){
+	var count = localStorage.length;
+	ge("petCount").innerHTML=count;
+}
+function clearLocalStorage(){
+	if(localStorage.length === 0){
+		alert("There are not pets to clear.");
+	}else{
+		var ask = confirm("Are you sure you want to DELETE ALL your pets??");
+		if(ask){
+			localStorage.clear();
+			alert("All pets are cleared");
+			window.location.reload();
+			return false;
+		}else{
+			alert("Pets were not deleted.")
+		}	
+	}	
+}
 
 autoFillExamplePets();
-
+countPets();
 showThePets();
+clearAll.addEventListener("click", clearLocalStorage);
+
+
+//$("#clearAll").click( clearLocalStorage());
 
 //   ---OLD CODE---
 /*window.addEventListener("DOMContentLoaded", function(){

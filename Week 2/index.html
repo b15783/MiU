@@ -44,8 +44,8 @@
 				<li data-role="list-divider" role="heading">Browse by:</li>
 				<li><a href="#petList" data-transition="slide">
 					All of your pets
-					<span class="ui-li-count">
-						100
+					<span class="ui-li-count" id="petCount">
+						
 					</span>
 				</a></li>
 				<li><a href="#favorites" data-transition="slide">
@@ -66,6 +66,7 @@
 					<li><a href="#home" data-icon="home" class="ui-btn-active">Home</a></li>
 					<li><a href="#about" data-icon="info">About</a></li>
 					<li><a href="#addpet" data-icon="plus">Add pet</a></li>
+					<li><a href="#utilities" data-icon="gear">Utilities</a></li>
 				</ul>
 			</div>		
 		</div>
@@ -107,6 +108,7 @@
 					<li><a href="#home" data-icon="home">Home</a></li>
 					<li><a href="#about" data-icon="info">About</a></li>
 					<li><a href="#addpet" data-icon="plus">Add pet</a></li>
+					<li><a href="#utilities" data-icon="gear">Utilities</a></li>
 				</ul>
 			</div>		
 		</div>
@@ -138,6 +140,7 @@
 					<li><a href="#home" data-icon="home">Home</a></li>
 					<li><a href="#about" data-icon="info">About</a></li>
 					<li><a href="#addpet" data-icon="plus">Add pet</a></li>
+					<li><a href="#utilities" data-icon="gear">Utilities</a></li>
 				</ul>
 			</div>		
 		</div>
@@ -215,7 +218,7 @@
 			<h1>Pet List</h1>
 		</div>
 		<div data-role="content">
-			<ul data-role="listview"id="fullPetList">
+			<ul data-role="listview" id="fullPetList">
 					
 			</ul>
 			
@@ -226,6 +229,49 @@
 					<li><a href="#home" data-icon="home">Home</a></li>
 					<li><a href="#about" data-icon="info">About</a></li>
 					<li><a href="#addpet" data-icon="plus">Add pet</a></li>
+					<li><a href="#utilities" data-icon="gear">Utilities</a></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+	<div data-role="page" id="about" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed">
+			<h1>About</h1>
+		</div>
+		<div data-role="content">
+			<h1>WoW Battle Pet Tracker</h1>
+			<p>Thank you for using my WoW Battle Pet Tracker.  This is a mobile app that you can use to 
+				keep track of and display all of the battle pets that you collect.</p>
+			<p>Code for this app can be viewed on my <a href="http://b15783.github.io/MiU">GITHUB page.</a></p>
+			<p>This app was created by Craig Schultz.  If you have any questions, please feel free to contact me at
+				 <a href="mailto:craig.schultz@comcast.net">email.</a></p>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home">Home</a></li>
+					<li><a href="#about" data-icon="info"class="ui-btn-active">About</a></li>
+					<li><a href="#addpet" data-icon="plus">Add pet</a></li>
+					<li><a href="#utilities" data-icon="gear">Utilities</a></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+	<div data-role="page" id="utilities" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed">
+			<h1>Utilities</h1>
+		</div>
+		<div data-role="content">
+			<p>To clear all pet data from localStorage, click the button below:</p>
+			<button id="clearAll" type="submit">Clear all</button>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home">Home</a></li>
+					<li><a href="#about" data-icon="info">About</a></li>
+					<li><a href="#addpet" data-icon="plus">Add pet</a></li>
+					<li><a href="#utilities" data-icon="gear"class="ui-btn-active">Utilities</a></li>
 				</ul>
 			</div>		
 		</div>
