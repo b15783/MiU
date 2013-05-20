@@ -1,9 +1,69 @@
 // Craig Schultz
-// Date:  May 15, 2013
-// Week 2
+// Date:  May 19, 2013
+// Week 3
 // MiU 1305
+$('#home').on('pageinit', function(){
+	var autoFillExamplePets(){
+		for(var n in json){
+			var id = Math.floor(Math.random()*100000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
+	}
+	if(localStorage.length === 0){autoFillExamplePets()};
+	
+});	
+$('#addPet').on('pageinit', funtion(){
+	var parsePetForm = function(data){
+	//uses form data here...
+	}
+	$(document).ready(function(){
+		var petForm = $('#inputForm'),
+			petErrorLink = $('#errorsLink')
+		;
+		petForm.validate({
+			invalidHandler: function(form, validator){
+				petErrorLink.click();
+				var html = '';
+				for(var key in validator.submitted){
+					$('label[for^="'+ key +'"]').not('[generated]');
+					var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+					var fieldName = legend.length ? legend.text() : label.text();
+					html += '<li>'+ fieldName +'</li>'
+				};
+				$("#petFormErrors ul").html(html)
+			},
+			submitHandler: function(){
+				var data = petForm.serializeArray();
+				parsePetForm(data);
+			}
+		});
+	});
+});
 
-window.addEventListener("DOMContentLoaded", function(){
+// The functions below can go inside or outside the pageinit function for the page in which it was needed.
+
+var autofillData = function(){
+	
+};
+
+var getData = function(){
+	
+};
+
+var storeData = function(data){
+	
+};
+
+var deleteItem = function (){
+	
+};
+
+var clearLocal = function(){
+	
+};
+
+// **OLD CODE BELOW**
+/*window.addEventListener("DOMContentLoaded", function(){
 	function ge(x){
 		var theElement = document.getElementById(x);
 		return theElement;
@@ -274,6 +334,7 @@ function makeFamilyGroup(){
 
 });
 
+*/
 
 
 
