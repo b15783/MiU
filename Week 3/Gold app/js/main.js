@@ -3,16 +3,28 @@
 // Week 3
 // MiU 1305
 $('#home').on('pageinit', function(){
-	var autoFillExamplePets(){
+	var autoFillData = function(){
 		for(var n in json){
 			var id = Math.floor(Math.random()*100000001);
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
 	}
-	if(localStorage.length === 0){autoFillExamplePets()};
-	
+	if(localStorage.length === 0){autoFillData()
+		}else{
+			for(var i=0, j=localStorage.length; i<j; i++){
+				var key = localStorage.key(i),
+					value = localStorage.getItem(key),
+					obj = JSON.parse(value);
+				//value = value.split(',');
+				$('#listOfPets').append("<li>"+obj.name[1]+"</br>Level: "+obj.level[1]+"</br>Capture Date: "+obj.date[1]+"</br>Family: "+obj.family[1]+"</br>Quality: "+obj.quality[1]+"</li>");
+			}
+		}
+	;
+	var count = localStorage.length;
+	$('#petCount').text(count);
 });	
-$('#addPet').on('pageinit', funtion(){
+
+/*$('#addPet').on('pageinit', funtion(){
 	var parsePetForm = function(data){
 	//uses form data here...
 	}
@@ -38,17 +50,29 @@ $('#addPet').on('pageinit', funtion(){
 			}
 		});
 	});
+});*/
+
+$('#petList').on('pageinit', function(){
+	var getData = function(){
+	
+	};
+});
+
+$('#clearAll').click(function(){
+	if (localStorage === 0){
+		alert("There are no pets to clear.")
+	}else{
+		if (confirm("Are you sure you want to delete all your pets?")){
+			localStorage.clear();
+			alert("All pets were deleted!");
+		}
+	}
 });
 
 // The functions below can go inside or outside the pageinit function for the page in which it was needed.
 
-var autofillData = function(){
-	
-};
 
-var getData = function(){
-	
-};
+
 
 var storeData = function(data){
 	
