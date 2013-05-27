@@ -1,0 +1,17 @@
+/*
+
+Craig A. Schultz
+19 May 2013
+Week 3
+MiU 1305
+WoW Battle Pet Tracker
+
+*/
+
+label.error{
+	display: block;
+	margin: 10px 0;
+	color: #cc0000;
+}
+
+#errorsLink {display: none;}
