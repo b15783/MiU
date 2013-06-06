@@ -20,7 +20,10 @@ window.addEventListener("DOMContentLoaded", function(){
 		var key = localStorage.key(i),
 			value = localStorage.getItem(key),
 			obj = JSON.parse(value);
-			if(obj.favorite[1]=="yes"){favNum++};
+			if(obj.favorite[1]=="yes"){
+				favNum++;
+				$('#listOfFavs').append("<li>"+obj.name[1]+"</br>Level: "+obj.level[1]+"</br>Capture Date: "+obj.date[1]+"</br>Family: "+obj.family[1]+"</br>Quality: "+obj.quality[1]+"</li>");
+			};
 			$('#listOfPets').append("<li>"+obj.name[1]+"</br>Level: "+obj.level[1]+"</br>Capture Date: "+obj.date[1]+"</br>Family: "+obj.family[1]+"</br>Quality: "+obj.quality[1]+"</li>");
 				
 	};

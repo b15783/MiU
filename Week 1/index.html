@@ -38,7 +38,7 @@
 				</div>
 				<input id="searchPet" type="submit" data-inline="false" data-icon="search" data-iconpos="right" value="Search">
 				<ul data-role="listview" data-inset="true">
-					<li data-role="list-divider" role="heading">Browse by:</li>
+					<li data-role="list-divider" role="heading">Browse your pets by:</li>
 					<li><a href="#petList" data-transition="slide">
 						All of your pets
 						<span class="ui-li-count" id="petCount"></span>
@@ -70,6 +70,24 @@
 			</div>
 			<div data-role="content">
 				<ul id="listOfPets" data-role="listview" data-filter="true"></ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="#about" data-icon="info">About</a></li>
+						<li><a href="./additem.html" data-icon="plus">Add pet</a></li>
+						<li><a href="#utilities" data-icon="gear">Utilities</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-role="page" id="favorites" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>Favorites</h1>
+			</div>
+			<div data-role="content">
+				<ul id="listOfFavs" data-role="listview" data-filter="true"></ul>
 			</div>
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
