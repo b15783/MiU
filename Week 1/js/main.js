@@ -4,12 +4,34 @@
 // MiU 1305
 
 window.addEventListener("DOMContentLoaded", function(){
-	function ge(x){
+	var ge = function (x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
+	var autoFillData = function(){
+		for(var n in json){
+			var id = Math.floor(Math.random()*100000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
+	}
+	if(localStorage.length === 0){autoFillData()}
+	var favNum = 0;
+	for(var i=0, j=localStorage.length; i<j; i++){
+		var key = localStorage.key(i),
+			value = localStorage.getItem(key),
+			obj = JSON.parse(value);
+			if(obj.favorite[1]=="yes"){favNum++};
+			$('#listOfPets').append("<li>"+obj.name[1]+"</br>Level: "+obj.level[1]+"</br>Capture Date: "+obj.date[1]+"</br>Family: "+obj.family[1]+"</br>Quality: "+obj.quality[1]+"</li>");
+				
+	};
+	var count = localStorage.length;
+	$('#petCount').text(count);
+	$('#favsCount').text(favNum);
+});
 	
-	function makeFamilyGroup(){
+
+// OLD CODE BELOW	
+	/*function makeFamilyGroup(){
 		var formTag = document.getElementsByTagName("form"), 
 			selectLi = ge('select'),
 			makeSelect = document.createElement('select');
@@ -271,7 +293,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	savePet.addEventListener("click", validate);
 	
 
-});
+*/
 
 
 
