@@ -35,54 +35,56 @@ window.addEventListener("DOMContentLoaded", function(){
 			value = localStorage.getItem(key),
 			obj = JSON.parse(value);
 			$('#listOfChars').append("<li>"+obj.name[1]+"</br>Level: "+obj.level[1]+"</br>"+obj.race[1]+" "+obj.clas[1]+"</br>Item Level: "+obj.ilevel[1]+"</li>");
-				
+			//$('#searchList').append("<li>"+obj.name[1]+"</br>Level: "+obj.level[1]+"</br>"+obj.race[1]+" "+obj.clas[1]+"</br>Item Level: "+obj.ilevel[1]+"</li>");	
 	};
 	var count = localStorage.length;
 	$('#charCount').text(count);
-
-	$('#clearAll').click(function(){
-		if(localStorage.length === 0){
-			alert("There are no characters to clear.");
-		}else{
-			var ask = confirm("Are you sure you want to DELETE ALL your toons??");
-			if(ask){
-				localStorage.clear();
-				alert("All data was cleared");
-				window.location.reload();
-				return false;
-			}else{
-				alert("Characters NOT deleted.")
-			}	
-		}	
-	});
 	
+	$(function(){
+		$("#searchChar").click(function(){
+			var field = ge("searchInput");
+			for(var k=0, l=localStorage.length; k<l; k++){
+				var index = localStorage.key(i),
+					value= localStorage.getItem(index),
+					toon = JSON.parse(value);
+					if (toon.name[1]==field){
+						$('#searchResults').append("<li>"+obj.name[1]+"</br>Level: "+obj.level[1]+"</br>"+obj.race[1]+" "+obj.clas[1]+"</br>Item Level: "+obj.ilevel[1]+"</li>");
+					}else{
+						alert("No character by that name was found.");
+					}
+			}
+			
+		})
+	});
+
+	$(function(){
+		$("#submit").click(function(){
+				// If there is no key, that means its a new item and a key is needed
+			if(!key){
+				var id			= Math.floor(Math.random()*100000001);
+			}else{
+				// Set the id to the existing key we're editing so that it will save over
+				id = key;
+			}
+			var item 		= {};
+				item.name	= ["Name:", ge('name').value];
+				item.level	= ["Level:", ge('level').value];
+				item.clas	= ["Class:", ge('clas').value];
+				item.race	= ["Race:", ge('Race').value];
+				item.ilevel	= ["iLevel:", ge('ilevel').value];
+			localStorage.setItem(id, JSON.stringify(item));
+			alert("Character was added to list");
+			
+		})
+	});
+		
 });
 	
 
 // OLD CODE BELOW	
-	/*function makeFamilyGroup(){
-		var formTag = document.getElementsByTagName("form"), 
-			selectLi = ge('select'),
-			makeSelect = document.createElement('select');
-			makeSelect.setAttribute("id", "family");
-		for(var i=0, j=familyGroup.length; i<j; i++){
-			var makeOption = document.createElement('option');
-			var optText = familyGroup[i];
-			makeOption.setAttribute("value", optText);
-			makeOption.innerHTML = optText;
-			makeSelect.appendChild(makeOption);
-		}
-		selectLi.appendChild(makeSelect);
+	/*
 	
-	}
 	
-	function getCheckboxValue(){
-		if(ge('favorite').checked){
-			favoriteValue="yes"
-		}else{
-			favoriteValue="no"
-		}
-	}
 	function toggleControls(n){
 		switch(n){
 			case "off":
@@ -120,14 +122,6 @@ window.addEventListener("DOMContentLoaded", function(){
 			
 	}
 	
-	function autoFillExamplePets(){
-		//The JSON data used below is located in JSON.js
-		//Store JSON data into local storage
-		for(var n in json){
-			var id = Math.floor(Math.random()*100000001);
-			localStorage.setItem(id, JSON.stringify(json[n]));
-		}
-	}
 	
 	function getData(){
 		toggleControls("off");

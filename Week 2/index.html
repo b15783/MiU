@@ -32,8 +32,10 @@
 				</div>
 				<a href="#addChar"><input type="submit" data-inline="false" data-icon="plus" data-theme="b" data-iconpos="right" value="Add characters!"></a>
 				<div data-role="fieldcontain">
+				<!--	<ul id="searchList" data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search characters"></ul>-->
 					<label for="searchinput">Search characters:</label>
 					<input id="searchInput" placeholder="Enter character name." value="" type="search">
+					<ul data-role="listview" id="searchResults"></ul>
 				</div>
 				<input id="searchChar" type="submit" data-inline="false" data-icon="search" data-iconpos="right" value="Search">
 				<ul data-role="listview" data-inset="true">
@@ -94,6 +96,7 @@
 					<li><a href="#warlockList"><font color="#948C9">Warlock</font></a></li>
 					<li><a href="#druidList"><font color="#FF7D0A">Druid</font></a></li>
 					<li><a href="#dkList"><font color="#C41F3B">Death Knight</font></a></li>
+					<li><a href="#monkList"><font color="#00ff96">Monk</font></a></li>
 				</ul>
 			</div>
 			<div data-role="footer" data-position="fixed">
@@ -146,6 +149,58 @@
 						</label>
 						<input name="name" id="name" placeholder="Enter character name here." value="" type="text" class="required">
 					</div>
+					<div data-role="fieldcontain">
+						<label for="race">
+							Race (required)
+						</label>
+						<select id="race" name="race" data-native-menu="true" class="required">
+							<option data-placeholder="true" value>--Choose a race--</option>
+							<option value="Human">Human</option>
+							<option value="Dwarf">Dwarf</option>
+							<option value="Night Elf">Night Elf</option>
+							<option value="Gnome">Gnome</option>
+							<option value="Draenei">Draenei</option>
+							<option value="Worgen">Worgen</option>
+							<option value="Pandaren">Pandaren</option>
+						</select>
+					</div>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup" data-type="vertical">
+							<legend>Class (required)</legend>
+							<input id="clas-1" name="clas" value="Paladin" type="radio" class="required">
+							<label for="clas-1" style="color: #F58CBA">Paladin</label>
+							<input id="clas-2" name="clas" value="Warrior" type="radio" class="required">
+							<label for="clas-2" style="color: #C79C6E">Warrior</label>
+							<input id="clas-3" name="clas" value="Shaman" type="radio" class="required">
+							<label for="clas-3" style="color: #0070DE">Shaman</label>
+							<input id="clas-4" name="clas" value="Hunter" type="radio" class="required">
+							<label for="clas-4" style="color: #ABD473">Hunter</label>
+							<input id="clas-5" name="clas" value="Rogue" type="radio" class="required">
+							<label for="clas-5" style="color: #FFF569">Rogue</label>
+							<input id="clas-6" name="clas" value="Priest" type="radio" class="required">
+							<label for="clas-6">Priest</label>
+							<input id="clas-7" name="clas" value="Death Knight" type="radio" class="required">
+							<label for="clas-7" style="color: #C41F3B">Death Knight</label>
+							<input id="clas-8" name="clas" value="Druid" type="radio" class="required">
+							<label for="clas-8" style="color: #FF7D0A">Druid</label>
+							<input id="clas-9" name="clas" value="Warlock" type="radio" class="required">
+							<label for="clas-9" style="color: #948C9">Warlock</label>
+							<input id="clas-10" name="clas" value="Mage" type="radio" class="required">
+							<label for="clas-10" style="color: #69CCF0">Mage</label>
+							<input id="clas-11" name="clas" value="Monk" type="radio" class="required">
+							<label for="clas-11" style="color: #00ff96">Monk</label>
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="level">Level</label>	
+						<input type="range" id="level" name="level" min="1" max="90" value="1">
+					</div>
+					<div data-role="fieldcontain">
+						<label for="ilevel">Item Level</label>
+						<input name="ilevel" id="ilevel" placeholder="Enter character item level here." value="" type="text">
+					</div>
+					<input id="submit" type="submit" data-theme="b" data-icon="plus" data-iconpos="right" value="Add this character">
+					<input id="cancel" type="submit" data-theme="a" data-icon="delete" data-iconpos="right" value="Cancel">
 				</form>
 			</div>
 			<div data-role="footer" data-position="fixed">

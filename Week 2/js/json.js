@@ -140,7 +140,7 @@ var json = {
 	"char20": {
 		"name": ["Name:", "Sondresting"],
 		"level": ["Level:", "90"],
-		"clas": ["Class:", "Hunger"],
+		"clas": ["Class:", "Hunter"],
 		"race": ["Race:", "Night Elf"],
 		"ilevel": ["iLevel:", "519"]
 	}
