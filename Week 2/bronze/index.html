@@ -40,15 +40,38 @@
 				<input id="searchChar" type="submit" data-inline="false" data-icon="search" data-iconpos="right" value="Search">
 				<ul data-role="listview" data-inset="true">
 					<li data-role="list-divider" role="heading">Browse your characters by:</li>
-					<li><a href="#charList" data-transition="slide">
-						All of your characters
-						<span class="ui-li-count" id="charCount"></span>
-					</a></li>
-					<li><a href="#classList" data-transition="slide">
-						By class
-					</a></li>
-					<li><a href="#raceList" data-transition="slide">By race</a></li>
 				</ul>
+				<div data-role="collapsible-set" data-theme="c" data-content-theme="a">
+					<div data-role="collapsible" data-collapsed="true">
+						<h3>All of your characters</h3>
+						<ul id="listOfChars" data-role="listview" data-filter="true"></ul>
+					</div>
+					<div data-role="collapsible" data-collapsed="true">
+						<h3>By Class</h3>
+						<p><a href="#warriorList"><font color="#C79C6E">Warrior</font></a></p>
+						<p><a href="#paladinList"><font color="#F58CBA">Paladin</font></a></p>
+						<p><a href="#hunterList"><font color="#ABD473">Hunter</font></p>
+						<p><a href="#rogueList"><font color="#FFF569">Rogue</font></a></p>
+						<p><a href="#priestList"><font color="#FFFFFF">Priest</font></p>
+						<p><a href="#shamanList"><font color="#0070DE">Shaman</font></p>
+						<p><a href="#mageList"><font color="#69CCF0">Mage</font></a></p>
+						<p><a href="#warlockList"><font color="#948C9">Warlock</font></a></p>
+						<p><a href="#druidList"><font color="#FF7D0A">Druid</font></a></p>
+						<p><a href="#dkList"><font color="#C41F3B">Death Knight</font></a></p>
+						<p><a href="#monkList"><font color="#00ff96">Monk</font></a></p>
+					</div>
+					<div data-role="collapsible" data-collapsed="true">
+						<h3>By Race</h3>
+						<p><a href="#humanList">Human</a></p> 
+						<p><a href="#dwarfList">Dwarf</a></p> 
+						<p><a href="#neList">Night Elf</a></p> 
+						<p><a href="#gnomeList">Gnome</a></p> 
+						<p><a href="#draeneiList">Draenei</a></p> 
+						<p><a href="#worgenList">Worgen</a></p> 
+						<p><a href="#pandaList">Pandaren</a></p>
+					</div>
+				</div>
+				<input id="clearAll" type="submit" data-inline="false" data-icon="alert" data-theme="e" data-iconpos="right" value="Delete all characters!">
 			</div>
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
@@ -56,86 +79,10 @@
 						<li><a href="#home" data-icon="home" class="ui-btn-active">Home</a></li>
 						<li><a href="#about" data-icon="info">About</a></li>
 						<li><a href="#addChar" data-icon="plus">Add</a></li>
-						<li><a href="#utilities" data-icon="gear">Utilities</a></li>
+						<li><a href="#news" data-icon="info">News</a></li>
 					</ul>
 				</div>
 			</div>
-		</div>
-		<div data-role="page" id="charList" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed">
-				<h1>Characters</h1>
-			</div>
-			<div data-role="content">
-				<ul id="listOfChars" data-role="listview" data-filter="true"></ul>
-			</div>
-			<div data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#home" data-icon="home">Home</a></li>
-						<li><a href="#about" data-icon="info">About</a></li>
-						<li><a href="#addChar" data-icon="plus">Add</a></li>
-						<li><a href="#utilities" data-icon="gear">Utilities</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div data-role="page" id="classList" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed" >
-				<h1>By Class</h1>
-			</div>
-			<div data-role"content">
-				<ul data-role="listview" data-inset="true">
-					<li data-role="list-divider" role="heading">Select a class:</li>
-					<li><a href="#warriorList"><font color="#C79C6E">Warrior</font></a></li> 
-					<li><a href="#paladinList"><font color="#F58CBA">Paladin</font></a></li>
-					<li><a href="#hunterList"><font color="#ABD473">Hunter</font></a></li>
-					<li><a href="#rogueList"><font color="#FFF569">Rogue</font></a></li>
-					<li><a href="#priestList">Priest</a></li>
-					<li><a href="#shamanList"><font color="#0070DE">Shaman</font></a></li>
-					<li><a href="#mageList"><font color="#69CCF0">Mage</font></a></li>
-					<li><a href="#warlockList"><font color="#948C9">Warlock</font></a></li>
-					<li><a href="#druidList"><font color="#FF7D0A">Druid</font></a></li>
-					<li><a href="#dkList"><font color="#C41F3B">Death Knight</font></a></li>
-					<li><a href="#monkList"><font color="#00ff96">Monk</font></a></li>
-				</ul>
-			</div>
-			<div data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#home" data-icon="home"  >Home</a></li>
-						<li><a href="#about" data-icon="info" >About</a></li>
-						<li><a href="#addChar" data-icon="plus" >Add</a></li>
-						<li><a href="#utilities" data-icon="gear" >Utilities</a></li>
-					</ul>
-				</div>		
-			</div>
-		</div>	
-		<div data-role="page" id="raceList" data-add-back-btn="true">
-			<div data-role="header" data-position="fixed" >
-				<h1>Race</h1>
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" data-inset="true">
-					<li data-role="list-divider" role="heading">Select race to be displayed:</li>
-					<li><a href="#humanList">Human</a></li> 
-					<li><a href="#dwarfList">Dwarf</a></li> 
-					<li><a href="#neList">Night Elf</a></li> 
-					<li><a href="#gnomeList">Gnome</a></li> 
-					<li><a href="#draeneiList">Draenei</a></li> 
-					<li><a href="#worgenList">Worgen</a></li> 
-					<li><a href="#pandaList">Pandaren</a></li>
-				</ul>
-			</div>
-			<div data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#home" data-icon="home"  >Home</a></li>
-						<li><a href="#about" data-icon="info" >About</a></li>
-						<li><a href="#addChar" data-icon="plus" >Add</a></li>
-						<li><a href="#utilities" data-icon="gear" >Utilities</a></li>
-					</ul>
-				</div>	
-			</div>	
 		</div>
 		<div data-role="page" id="addChar" data-add-back-btn="true">
 			<div data-role="header" data-position="fixed">
@@ -209,7 +156,7 @@
 						<li><a href="#home" data-icon="home"  >Home</a></li>
 						<li><a href="#about" data-icon="info" >About</a></li>
 						<li><a href="#addChar" data-icon="plus" class="ui-btn-active">Add</a></li>
-						<li><a href="#utilities" data-icon="gear" >Utilities</a></li>
+						<li><a href="#news" data-icon="info" >News</a></li>
 					</ul>
 				</div>	
 			</div>
@@ -225,6 +172,13 @@
 				<p>Code for this app can be viewed on my <a href="http://b15783.github.io/MiU">GITHUB page.</a></p>
 				<p>This app was created by Craig Schultz.  If you have any questions, please feel free to contact me at
 					 <a href="mailto:craig.schultz@comcast.net">email.</a></p>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><button type="submit" data-theme="e"><a href="../gold/index.html">Gold App</a></button></div>
+					<div class="ui-block-b"><button type="submit" data-theme="a"><a href="../bronze/index.html">Bronze App</a></button></div>
+				</div>
+				<h2>Newsfeed credits:</h2>
+				<p>Battle.net services news was taken from <a href="http://www.mmo-champion.com/content/">MMO Champion</a></p>
+				<p>Hotfixes news was taken from <a href="http://www.joystiq.com">WOW Insider</a></p>
 			</div>
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
@@ -232,18 +186,31 @@
 						<li><a href="#home" data-icon="home"  >Home</a></li>
 						<li><a href="#about" data-icon="info" class="ui-btn-active">About</a></li>
 						<li><a href="#addChar" data-icon="plus" >Add</a></li>
-						<li><a href="#utilities" data-icon="gear" >Utilities</a></li>
+						<li><a href="#news" data-icon="info" >News</a></li>
 					</ul>
 				</div>	
 			</div>
 		</div>
-		<div data-role="page" id="utilities" data-add-back-btn="true">
+		<div data-role="page" id="news" data-add-back-btn="true">
 			<div data-role="header" data-position="fixed">
-				<h1>Utilities</h1>
+				<h1>News</h1>
 			</div>
 			<div data-role="content">
-				<p>To clear all items from local storage click below:</p>
-				<input id="clearAll" type="submit" data-inline="false" data-icon="alert" data-theme="e" data-iconpos="right" value="Delete all characters!">
+				<div data-role="collapsible-set">
+					<div data-role="collapsible" data-collapsed="true">
+						<h3>Hotfixes for June 10th</h3>
+						<p>In the Throne of Thunder, Lei Shen will now always drop a Titan Runestone of Secrets of the Empire for players on the legendary quest line.</p>
+						<p>Hey hunters! Arcane Shot, Cobra Shot and Steady Shot will all deal 10% more damage after that realm restart.</p>
+						<p>Durumu and his minions have got us all figured out.  Elixirs of Detect Invisibility will no longer allow players to see fog beasts while they are invisible.</p>
+					</div>
+					<div data-role="collapsible" data-collapsed="true">
+						<h4>New Battle.net services activated</h4>
+						<p>You no longer have to login to WoW, SC2, or D3, as clicking play will automatically log you in.</p>
+						<p>A list of you BattleTag and RealID friends is now shown in a small window in the client.</p>
+						<p>Chat is disabled for this phase of testing, but you will be able to chat with you BattleTag and RealID friends in the future.</p>
+					</div>
+				</div>
+				
 			</div>
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
@@ -251,7 +218,7 @@
 						<li><a href="#home" data-icon="home">Home</a></li>
 						<li><a href="#about" data-icon="info">About</a></li>
 						<li><a href="#addChar" data-icon="plus" >Add</a></li>
-						<li><a href="#utilities" data-icon="gear" class="ui-btn-active">Utilities</a></li>
+						<li><a href="#news" data-icon="info" class="ui-btn-active">News</a></li>
 					</ul>
 				</div>	
 			</div>
