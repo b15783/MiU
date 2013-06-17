@@ -1,0 +1,318 @@
+<!doctype html>
+
+<!--
+	Craig Schultz, Week 3, 16 June 2013, MiU Term 1306
+-->
+
+<html language="en">
+	<head>
+		<meta charset="utf 8">
+		
+		<title>Character Tracker</title>
+		
+		<meta name="keywords" content="html5, mobile development, Full Sail University" />
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+		
+		<meta name="author" content="Craig Schultz">
+		
+		<!-- StyleSheets under here -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+				
+	</head>
+	<body>
+		<div data-role="page" id="home">
+			<div data-role="header" data-position="fixed">
+				<h1>Character List</h1>
+			</div>
+			<div data-role="content">
+				<div style="relative">
+					<img src="images/featuresmall.png">
+				</div>
+				<a href="#addChar"><input type="submit" data-inline="false" data-icon="plus" data-theme="b" data-iconpos="right" value="Add characters!"></a>
+				<div data-role="fieldcontain">
+				<!--	<ul id="searchList" data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search characters"></ul>-->
+					<label for="searchinput">Search characters:</label>
+					<input id="searchInput" placeholder="Enter character name." value="" type="search">
+					<ul data-role="listview" id="searchResults"></ul>
+				</div>
+				<input id="searchChar" type="submit" data-inline="false" data-icon="search" data-iconpos="right" value="Search">
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider" role="heading">Browse your characters by:</li>
+					<li><a href="#charList" data-transition="slide">
+						All of your characters
+						<span class="ui-li-count" id="charCount"></span>
+					</a></li>
+					<li><a href="#classList" data-transition="slide">
+						By class
+					</a></li>
+					<li><a href="#raceList" data-transition="slide">By race</a></li>
+				</ul>
+				<input id="clearAll" type="submit" data-inline="false" data-icon="alert" data-theme="e" data-iconpos="right" value="Delete all characters!">
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home" class="ui-btn-active">Home</a></li>
+						<li><a href="#about" data-icon="info">About</a></li>
+						<li><a href="#addChar" data-icon="plus">Add</a></li>
+						<li><a href="#news" data-icon="info">News</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-role="page" id="charList" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>Characters</h1>
+			</div>
+			<div data-role="content">
+				<ul id="listOfChars" data-role="listview" data-filter="true"></ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="#about" data-icon="info">About</a></li>
+						<li><a href="#addChar" data-icon="plus">Add</a></li>
+						<li><a href="#news" data-icon="info">News</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-role="page" id="classList" data-add-back-btn="true" data-theme="a">
+			<div data-role="header" data-position="fixed" >
+				<h1>By Class</h1>
+			</div>
+			<div data-role"content">
+				<h1>Select a class:</h1>
+				<div class="ui-grid-c" style="text-align: center">
+					<div class="ui-block-a">
+						<a href="#warriorList" ><font color="#C79C6E">Warrior</font></a></div>
+					<div class="ui-block-b">
+						<a href="#paladinList" ><font color="#F58CBA">Paladin</font></a></div> 
+					<div class="ui-block-c">
+						<a href="#hunterList"><font color="#ABD473">Hunter</font></a></div>
+					<div class="ui-block-d">
+						<a href="#rogueList"><font color="#FFF569">Rogue</font></a></div>
+					<div class="ui-block-a">
+						<a href="#priestList"><font color="#FFFFFF">Priest</font></a></div>
+					<div class="ui-block-b">
+						<a href="#shamanList" ><font color="#0070DE">Shaman</font></a></div> 
+					<div class="ui-block-c">
+						<a href="#mageList"><font color="#69CCF0">Mage</font></a></div>
+					<div class="ui-block-d">
+						<a href="#warlockList"><font color="#948C9">Warlock</font></a></div>
+					<div class="ui-block-a">
+						<a href="#druidList"><font color="#FF7D0A">Druid</font></a></div>
+					<div class="ui-block-b">
+						<a href="#dkList"><font color="#C41F3B">Death Knight</font></a></div> 
+					<div class="ui-block-c">
+						<a href="#monkList"><font color="#00ff96">Monk</font></a></div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home"  >Home</a></li>
+						<li><a href="#about" data-icon="info" >About</a></li>
+						<li><a href="#addChar" data-icon="plus" >Add</a></li>
+						<li><a href="#news" data-icon="info" >News</a></li>
+					</ul>
+				</div>		
+			</div>
+		</div>	
+		<div data-role="page" id="raceList" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed" >
+				<h1>Race</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider" role="heading">Select race to be displayed:</li>
+					<li>
+						<img src="images/human.png">
+						<h3><a href="#humanList">Human</a></h3>
+					</li> 
+					<li>
+						<img src="images/dwarf.png">
+						<h3><a href="#dwarfList">Dwarf</a></h3>
+					</li> 
+					<li>
+						<img src="images/ne.png">
+						<h3><a href="#neList">Night Elf</a></h3>
+					</li> 
+					<li>
+						<img src="images/gnome.png">
+						<h3><a href="#gnomeList">Gnome</a></h3>
+					</li> 
+					<li>
+						<img src="images/draenei.png">
+						<h3><a href="#draeneiList">Draenei</a></h3>
+					</li> 
+					<li>
+						<img src="images/worgen.png">
+						<h3><a href="#worgenList">Worgen</a></h3>
+					</li> 
+					<li>
+						<img src="images/pandaren.png">
+						<h3><a href="#pandaList">Pandaren</a></h3>
+					</li>
+				</ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home"  >Home</a></li>
+						<li><a href="#about" data-icon="info" >About</a></li>
+						<li><a href="#addChar" data-icon="plus" >Add</a></li>
+						<li><a href="#news" data-icon="info" >News</a></li>
+					</ul>
+				</div>	
+			</div>	
+		</div>
+		<div data-role="page" id="addChar" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>Add Character</h1>
+			</div>
+			<div data-role="content">
+				<form action="" id="inputForm" method="post" data-ajax="false">
+					<div data-role="fieldcontain">
+						<label for="name">
+							Name (required)
+						</label>
+						<input name="name" id="name" placeholder="Enter character name here." value="" type="text" class="required">
+					</div>
+					<div data-role="fieldcontain">
+						<label for="race">
+							Race (required)
+						</label>
+						<select id="race" name="race" data-native-menu="true" class="required">
+							<option data-placeholder="true" value>--Choose a race--</option>
+							<option value="Human">Human</option>
+							<option value="Dwarf">Dwarf</option>
+							<option value="Night Elf">Night Elf</option>
+							<option value="Gnome">Gnome</option>
+							<option value="Draenei">Draenei</option>
+							<option value="Worgen">Worgen</option>
+							<option value="Pandaren">Pandaren</option>
+						</select>
+					</div>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup" data-type="vertical">
+							<legend>Class (required)</legend>
+							<input id="clas-1" name="clas" value="Paladin" type="radio" class="required">
+							<label for="clas-1" style="color: #F58CBA">Paladin</label>
+							<input id="clas-2" name="clas" value="Warrior" type="radio" class="required">
+							<label for="clas-2" style="color: #C79C6E">Warrior</label>
+							<input id="clas-3" name="clas" value="Shaman" type="radio" class="required">
+							<label for="clas-3" style="color: #0070DE">Shaman</label>
+							<input id="clas-4" name="clas" value="Hunter" type="radio" class="required">
+							<label for="clas-4" style="color: #ABD473">Hunter</label>
+							<input id="clas-5" name="clas" value="Rogue" type="radio" class="required">
+							<label for="clas-5" style="color: #FFF569">Rogue</label>
+							<input id="clas-6" name="clas" value="Priest" type="radio" class="required">
+							<label for="clas-6">Priest</label>
+							<input id="clas-7" name="clas" value="Death Knight" type="radio" class="required">
+							<label for="clas-7" style="color: #C41F3B">Death Knight</label>
+							<input id="clas-8" name="clas" value="Druid" type="radio" class="required">
+							<label for="clas-8" style="color: #FF7D0A">Druid</label>
+							<input id="clas-9" name="clas" value="Warlock" type="radio" class="required">
+							<label for="clas-9" style="color: #948C9">Warlock</label>
+							<input id="clas-10" name="clas" value="Mage" type="radio" class="required">
+							<label for="clas-10" style="color: #69CCF0">Mage</label>
+							<input id="clas-11" name="clas" value="Monk" type="radio" class="required">
+							<label for="clas-11" style="color: #00ff96">Monk</label>
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="level">Level</label>	
+						<input type="range" id="level" name="level" min="1" max="90" value="1">
+					</div>
+					<div data-role="fieldcontain">
+						<label for="ilevel">Item Level</label>
+						<input name="ilevel" id="ilevel" placeholder="Enter character item level here." value="" type="text">
+					</div>
+					<input id="submit" type="submit" data-theme="b" data-icon="plus" data-iconpos="right" value="Add this character">
+					<input id="cancel" type="submit" data-theme="a" data-icon="delete" data-iconpos="right" value="Cancel">
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home"  >Home</a></li>
+						<li><a href="#about" data-icon="info" >About</a></li>
+						<li><a href="#addChar" data-icon="plus" class="ui-btn-active">Add</a></li>
+						<li><a href="#news" data-icon="info" >News</a></li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+		<div data-role="page" id="about" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>About</h1>
+			</div>
+			<div data-role="content">
+				<h2>WoW Character Tracker</h2>
+				<p>Thank you for using my World of Warcraft Character Tracker.  This is a mobile app that you can use to 
+					keep track of and display all of your WoW characters.</p>
+				<p>Code for this app can be viewed on my <a href="http://b15783.github.io/MiU">GITHUB page.</a></p>
+				<p>This app was created by Craig Schultz.  If you have any questions, please feel free to contact me at
+					 <a href="mailto:craig.schultz@comcast.net">email.</a></p>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><button type="submit" data-theme="e"><a href="../gold/index.html">Gold App</a></button></div>
+					<div class="ui-block-b"><button type="submit" data-theme="a"><a href="../bronze/index.html">Bronze App</a></button></div>
+				</div>
+				<h2>Newsfeed credits:</h2>
+				<p>Battle.net services news was taken from <a href="http://www.mmo-champion.com/content/">MMO Champion</a></p>
+				<p>Hotfixes news was taken from <a href="http://www.joystiq.com">WOW Insider</a></p>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home"  >Home</a></li>
+						<li><a href="#about" data-icon="info" class="ui-btn-active">About</a></li>
+						<li><a href="#addChar" data-icon="plus" >Add</a></li>
+						<li><a href="#news" data-icon="info" >News</a></li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+		<div data-role="page" id="news" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>News</h1>
+			</div>
+			<div data-role="content">
+				<div data-role="collapsible-set">
+					<div data-role="collapsible" data-collapsed="true">
+						<h3>Hotfixes for June 10th</h3>
+						<p>In the Throne of Thunder, Lei Shen will now always drop a Titan Runestone of Secrets of the Empire for players on the legendary quest line.</p>
+						<p>Hey hunters! Arcane Shot, Cobra Shot and Steady Shot will all deal 10% more damage after that realm restart.</p>
+						<p>Durumu and his minions have got us all figured out.  Elixirs of Detect Invisibility will no longer allow players to see fog beasts while they are invisible.</p>
+					</div>
+					<div data-role="collapsible" data-collapsed="true">
+						<h4>New Battle.net services activated</h4>
+						<p>You no longer have to login to WoW, SC2, or D3, as clicking play will automatically log you in.</p>
+						<p>A list of you BattleTag and RealID friends is now shown in a small window in the client.</p>
+						<p>Chat is disabled for this phase of testing, but you will be able to chat with you BattleTag and RealID friends in the future.</p>
+					</div>
+				</div>
+				
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="#about" data-icon="info">About</a></li>
+						<li><a href="#addChar" data-icon="plus" >Add</a></li>
+						<li><a href="#news" data-icon="info" class="ui-btn-active">News</a></li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+	<script src="js/json.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	</body>
+	
+</html>
